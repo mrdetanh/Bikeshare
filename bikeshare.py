@@ -45,6 +45,28 @@ def get_filters():
     print('-'*40)
     return city, month, day
 
+def log_search(city, month, day, filename='search_history.txt'):
+    """
+    Logs the search parameters to a file.
+
+    Args:
+        city - name of the city
+        month - name of the month
+        day - name of the day
+        filename - name of the file to log the search history to (default: 'search_history.txt')
+    """
+    with open(filename, 'a') as file:
+        file.write(f'City: {city}, Month: {month}, Day: {day}\n')
+    print(f'Search parameters logged to {filename}')
+
+#Check and notify if DataFrame is empty
+def check_empty(df):
+    """Checks if the DataFrame is empty and prints a message if it is."""
+    if df.empty:
+        print("No data available for the selected filters.")
+        return True
+    return False
+
 def load_data(city, month, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
@@ -79,6 +101,8 @@ def load_data(city, month, day):
 
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
+    if check_empty(df):
+        return
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
@@ -99,6 +123,8 @@ def time_stats(df):
 
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
+    if check_empty(df):
+        return
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
@@ -119,6 +145,8 @@ def station_stats(df):
 
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
+    if check_empty(df):
+        return
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
@@ -135,6 +163,8 @@ def trip_duration_stats(df):
 
 def user_stats(df):
     """Displays statistics on bikeshare users."""
+    if check_empty(df):
+        return
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
@@ -312,6 +342,7 @@ def display_data(df):
 def main():
     while True:
         city, month, day = get_filters()
+        log_search(city, month, day)
         df = load_data(city, month, day)
 
         time_stats(df)
