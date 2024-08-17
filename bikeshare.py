@@ -191,7 +191,7 @@ def display_data1(df):
             if user_input != 'yes':
                 keep_asking = False
         else:
-            print("No more data to display for the most frequent times of travel.")
+            print("You have reached the end of the available data for this section.")
             keep_asking = False
 
 # Display_data2
@@ -206,7 +206,7 @@ def display_data2(df):
 
     start_loc = 0
     keep_asking = True
-    user_input = input("Do you want to see the data for the most popular stations and trip): ").strip().lower()
+    user_input = input("Do you want to see the data for the most popular stations and trip? (yes/no): ").strip().lower()
     if user_input != 'yes':
         keep_asking = False
 
@@ -220,7 +220,7 @@ def display_data2(df):
             if user_input != 'yes':
                 keep_asking = False
         else:
-            print("No more data to display for the most popular stations and trip.")
+            print("You have reached the end of the available data for this section.")
             keep_asking = False
 
 # Display_data3
@@ -257,7 +257,7 @@ def display_data3(df):
                     if user_input != 'yes':
                         keep_asking = False
                 else:
-                    print("No more data to display for the earliest year(s).")
+                    print("You have reached the end of the available data for this section.")
                     keep_asking = False
 
         start_loc = 0
@@ -277,7 +277,7 @@ def display_data3(df):
                     if user_input != 'yes':
                         keep_asking = False
                 else:
-                    print("No more data to display for the most recent year(s).")
+                    print("You have reached the end of the available data for this section.")
                     keep_asking = False
 
         start_loc = 0
@@ -297,7 +297,7 @@ def display_data3(df):
                     if user_input != 'yes':
                         keep_asking = False
                 else:
-                    print("No more data to display for the most common year(s).")
+                    print("You have reached the end of the available data for this section.")
                     keep_asking = False
     else:
         print('Birth Year data is not available for this city.')
