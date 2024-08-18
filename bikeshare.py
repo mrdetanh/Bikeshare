@@ -45,6 +45,7 @@ def get_filters():
     print('-'*40)
     return city, month, day
 
+# record the search history to a text file
 def log_search(city, month, day, filename='search_history.txt'):
     """
     Logs the search parameters to a file.
