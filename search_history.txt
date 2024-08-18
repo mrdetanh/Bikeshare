@@ -1,1 +1,2 @@
 City: chicago, Month: january, Day: monday
+City: chicago, Month: all, Day: all
